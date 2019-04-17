@@ -1,4 +1,16 @@
-<ul>
-  <li><%= link_to 'Signup', signup_path %></li>
-  <li><%= link_to 'Login', signup_path %></li>
-</ul>
+<header>
+  <nav>
+    <a href="/">Microposts</a>
+    <ul>
+      <% if logged_in? %>
+          <ul>
+            <li>ユーザー名 : <%= current_user.name %></li>
+            <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+          </ul>
+      <% else %>
+        <li><%= link_to 'Signup', signup_path %></li>
+        <li><%= link_to 'Login', login_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
